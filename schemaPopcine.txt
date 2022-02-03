@@ -1,0 +1,135 @@
+let schemaMovie = {
+    required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero"],
+    properties: {
+        "titulo": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "sinopse": {
+            bsonType: "string",
+            description: "must be a string and required"
+
+        },
+        "duracao": {
+            bsonType: "int",
+            description: "must be an int value and required"        
+        },
+        "dataEstreia": {
+            bsonType: "date",
+            description: "must be a date type and required"        
+        },
+
+        "classificacao": {
+            bsonType: "string",
+            description: "must be a string and required",
+            enum: [
+                "Livre", "10 anos", "12 anos", 
+                "14 anos", "16 anos", " 18 anos", 
+            ]        
+
+        },
+        "orcamento": {
+            bsonType: "double",
+            description: "must be a double value"
+        },
+        "bilheteria": {
+            bsonType: "double",
+            description: "must be a double value"
+            
+        },
+        "genero": {
+            bsonType: "string",
+            description: "must be a string and required"
+            
+        }
+
+    }
+}
+
+db.createCollection("Movie", {validator: {$jsonSchema: schemaMovie}})
+
+db.Movie.insertOne({
+    "titulo": "Viúva Negra",
+    "sinopse": "Natasha Romanoff, também conhecida como Viúva Negra, confronta o lado mais sombrio de sua história quando surge uma perigosa conspiração ligada ao seu passado. Perseguida por uma força implacável disposta a tudo para destruí-la, Natasha precisa agora lidar com seu passado como espiã e com as relações que deixou para trás muito antes de se tornar uma Vingadora.",
+    "duracao": NumberInt(135),
+    "dataEstreia": new Date("2021-07-08"),
+    "classificacao": "12 anos",
+    "orcamento": 200000000,
+    "bilheteria": 369811000
+});
+
+let schemaCliente = {
+    required: ["nome", "dataNascimento", "login"],
+    properties: {
+        "nome": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "dataNascimento": {
+            bsonType: "date",
+            description: "must be a date type and required"  
+        },
+       "login": {
+            bsonType: "objetId",
+            description: "must be a objectId and required"  
+        }
+
+    }
+}
+
+db.createCollection("Cliente", {validator: {$jsonSchema: schemaCliente}});
+
+let schemaLogin = {
+    required: ["email", "senha"],
+    properties: {
+        "nome": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "senha": {
+            bsonType: "date",
+            description: "must be a string type and required"  
+        }
+    }
+}
+
+db.createCollection("Cliente", {validator: {$jsonSchema: schemaLogin}});
+
+
+let schemaIngresso = {
+    required: ["dataCompra", "formaPagamento", "tipoIngresso", "nomeFilme", "poltrona", "sala", "sessao"],
+    properties: {
+        "dataCompra": {
+            bsonType: "date",
+            description: "must be a date type and required"
+        },
+        "formaPagamento": {
+            bsonType: "string",
+            description: "must be a string type and required",
+            enum = ["Boleto", "Pix", "Cartão Crédito", "Cartão Débito"]
+        },
+        "tipoIngresso": {
+            bsonType: "string",
+            description: "must be a string type and required",
+            enum = ["Meia", "Inteira"]
+        },
+        "nomeFilme": {
+            bsonType: "string",
+            description: "must be a string type and required",
+        },
+        "poltrona": {
+            bsonType: "string",
+            description: "must be a string type and required"
+        },
+        "sala": {
+            bsonType: "string",
+            description: "must be a string type and required"
+        },
+        "sessao": {
+            bsonType: "date",
+            description: "must be date type and required"
+        }
+
+    }
+}
+
