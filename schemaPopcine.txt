@@ -1,3 +1,5 @@
+//required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero", "elenco", "diretor"],
+
 let schemaMovie = {
     required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero", "elenco", "diretor"],
     properties: {
@@ -37,12 +39,12 @@ let schemaMovie = {
             
         },
         "genero": {
-            bsonType: "string",
+            bsonType: "array",
             description: "must be a string and required"
             
         },
         "elenco": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a string array and required"
 
         },
@@ -53,20 +55,28 @@ let schemaMovie = {
 
     }
 }
-
+db.createCollection("movie", {validator: {$jsonSchema: schemaMovie}})
 //index de genero
 
-db.createCollection("Movie", {validator: {$jsonSchema: schemaMovie}})
-
-db.Movie.insertOne({
+db.movie.insertOne({
     "titulo": "Viúva Negra",
     "sinopse": "Natasha Romanoff, também conhecida como Viúva Negra, confronta o lado mais sombrio de sua história quando surge uma perigosa conspiração ligada ao seu passado. Perseguida por uma força implacável disposta a tudo para destruí-la, Natasha precisa agora lidar com seu passado como espiã e com as relações que deixou para trás muito antes de se tornar uma Vingadora.",
-    "duracao": NumberInt(135),
+    "duracao": 135,
     "dataEstreia": new Date("2021-07-08"),
     "classificacao": "12 anos",
-    "orcamento": 200000000,
-    "bilheteria": 369811000
+    "orcamento": Double(200000000),
+    "bilheteria": Double(369811000),
+    "genero": ["Ação", "Suspense"],
+    "elenco": ["Natasha Romanoff"],
+    "diretor": "Dwayne Jhonson"
 });
+
+
+
+
+//
+db.movie.drop()
+let schemaMovie = null    
 
 let schemaCliente = {
     required: ["nome", "dataNascimento", "login"],
@@ -87,7 +97,7 @@ let schemaCliente = {
     }
 }
 
-db.createCollection("Cliente", {validator: {$jsonSchema: schemaCliente}});
+db.createCollection("cliente", {validator: {$jsonSchema: schemaCliente}});
 
 let schemaLogin = {
     required: ["email", "senha"],
@@ -103,8 +113,7 @@ let schemaLogin = {
     }
 }
 
-db.createCollection("Login", {validator: {$jsonSchema: schemaLogin}});
-
+db.createCollection("login", {validator: {$jsonSchema: schemaLogin}});
 
 let schemaIngresso = {
     required: ["dataCompra", "formaPagamento", "tipoIngresso", "nomeFilme", "poltrona", "sala", "sessao"],
@@ -143,7 +152,7 @@ let schemaIngresso = {
     }
 }
 
-db.createCollection("Ingresso", {validator: {$jsonSchema: schemaIngresso}});
+db.createCollection("ingresso", {validator: {$jsonSchema: schemaIngresso}});
 
 let schemaSala = {
     required: ["nomeSala", "capacidade"],
@@ -161,7 +170,7 @@ let schemaSala = {
     }
 }
 
-db.createCollection("Sala", {validator: {$jsonSchema: schemaSala}});
+db.createCollection("sala", {validator: {$jsonSchema: schemaSala}});
 
 let schemaSessao = {
     required: ["filme", "dataHora", "nomeSala"],
@@ -182,7 +191,7 @@ let schemaSessao = {
     }
 }
 
-db.createCollection("Sessao", {validator: {$jsonSchema: schemaSessao}});
+db.createCollection("sessao", {validator: {$jsonSchema: schemaSessao}});
 
 let schemaLegenda = {
     required: ["tradutores", "idiomaLegenda", "nomeFilme"],
@@ -207,7 +216,7 @@ let schemaLegenda = {
     }
 }
 
-db.createCollection("Legenda", {validator: {$jsonSchema: schemaLegenda}});
+db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
 let schemaEmBreve = {
     required: ["nomeFilme", "sinopse", "trailer", "dataEstreia"],
@@ -240,5 +249,15 @@ let schemaEmBreve = {
     }
 }
 
-db.createCollection("EmBreve", {validator: {$jsonSchema: schemaEmBreve}});
+db.createCollection("embreve", {validator: {$jsonSchema: schemaEmBreve}});
+
+let schemaDate = {
+    properties: {
+        "data": {
+            bsonType: "date"
+        }
+    }
+}
+
+db.createCollection("dataHora", {validator: {$jsonSchema: schemaDate}});
 
