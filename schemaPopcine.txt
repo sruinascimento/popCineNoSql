@@ -1,5 +1,5 @@
 let schemaMovie = {
-    required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero"],
+    required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero", "elenco", "diretor"],
     properties: {
         "titulo": {
             bsonType: "string",
@@ -18,7 +18,6 @@ let schemaMovie = {
             bsonType: "date",
             description: "must be a date type and required"        
         },
-
         "classificacao": {
             bsonType: "string",
             description: "must be a string and required",
@@ -41,10 +40,21 @@ let schemaMovie = {
             bsonType: "string",
             description: "must be a string and required"
             
+        },
+        "elenco": {
+            bsonType: ["string"],
+            description: "must be a string array and required"
+
+        },
+        "diretor": {
+            bsonType: "string",
+            description: "must be a string and required"
         }
 
     }
 }
+
+//index de genero
 
 db.createCollection("Movie", {validator: {$jsonSchema: schemaMovie}})
 
@@ -82,18 +92,18 @@ db.createCollection("Cliente", {validator: {$jsonSchema: schemaCliente}});
 let schemaLogin = {
     required: ["email", "senha"],
     properties: {
-        "nome": {
+        "email": {
             bsonType: "string",
             description: "must be a string and required"
         },
         "senha": {
-            bsonType: "date",
+            bsonType: "string",
             description: "must be a string type and required"  
         }
     }
 }
 
-db.createCollection("Cliente", {validator: {$jsonSchema: schemaLogin}});
+db.createCollection("Login", {validator: {$jsonSchema: schemaLogin}});
 
 
 let schemaIngresso = {
@@ -106,12 +116,12 @@ let schemaIngresso = {
         "formaPagamento": {
             bsonType: "string",
             description: "must be a string type and required",
-            enum = ["Boleto", "Pix", "Cartão Crédito", "Cartão Débito"]
+            enum : ["Boleto", "Pix", "Cartão Crédito", "Cartão Débito"]
         },
         "tipoIngresso": {
             bsonType: "string",
             description: "must be a string type and required",
-            enum = ["Meia", "Inteira"]
+            enum : ["Meia", "Inteira"]
         },
         "nomeFilme": {
             bsonType: "string",
@@ -132,4 +142,103 @@ let schemaIngresso = {
 
     }
 }
+
+db.createCollection("Ingresso", {validator: {$jsonSchema: schemaIngresso}});
+
+let schemaSala = {
+    required: ["nomeSala", "capacidade"],
+    properties: {
+        "nomeSala": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "capacidade": {
+            bsonType: "int",
+            description: "must be a int and required"
+
+        },
+
+    }
+}
+
+db.createCollection("Sala", {validator: {$jsonSchema: schemaSala}});
+
+let schemaSessao = {
+    required: ["filme", "dataHora", "nomeSala"],
+    properties: {
+        "filme": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "dataHora": {
+            bsonType: "date",
+            description: "must be a date type and required"
+
+        },
+        "nomeSala": {
+            bsonType: "string",
+            description: "must be a string and required"
+        }
+    }
+}
+
+db.createCollection("Sessao", {validator: {$jsonSchema: schemaSessao}});
+
+let schemaLegenda = {
+    required: ["tradutores", "idiomaLegenda", "nomeFilme"],
+    properties: {
+        "tradutores": {
+            bsonType: ["string"],
+            description: "must be a array string and required"
+        },
+        "idiomaLegenda": {
+            bsonType: ["string"],
+            description: "must be a array string and required"
+        },
+        "idiomaFilme": {
+            bsonType: ["string"],
+            description: "must be a array string and required"
+        },
+        "nomeFilme": {
+            bsonType: "string",
+            description: "must be a string and required"
+
+        }
+    }
+}
+
+db.createCollection("Legenda", {validator: {$jsonSchema: schemaLegenda}});
+
+let schemaEmBreve = {
+    required: ["nomeFilme", "sinopse", "trailer", "dataEstreia"],
+    properties: {
+        "nomeFilme": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "sinopse": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "trailer": {
+            bsonType: "string",
+            description: "must be a string and required"
+        },
+        "dataEstreia": {
+            bsonType: "date",
+            description: "must be a date type and required"
+
+        },
+        "duracao": {
+            bsonType: "int",
+            description: "must be a int and required"
+        },
+        "atores": {
+            bsonType: ["string"],
+            description: "must be a array string and required"
+        }
+    }
+}
+
+db.createCollection("EmBreve", {validator: {$jsonSchema: schemaEmBreve}});
 
