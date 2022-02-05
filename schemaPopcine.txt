@@ -266,4 +266,40 @@ let schemaEmBreve = {
 
 db.createCollection("embreve", {validator: {$jsonSchema: schemaEmBreve}});
 
+db.embreve.insertMany([
+    {
+    "nomeFilme": "Homem-Aranha Sem Volta Para Casa",
+    "sinopse": "Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam a descobrir o que realmente significa ser o Homem-Aranha.",
+    "trailer": "https://youtu.be/voLgdwTP2TM",
+    "dataEstreia": new Date("2021-12-16"),
+    "duracao": 148,
+    "atores": ["Tom Holland", "Benedict Cumberbatch", "Jon Favreau", "Willem Daffoe", "Zendaya", "Jacob Batalon", "Jamie Foxx", "Alfred Molina"]
+    },
+    {
+    "nomeFilme": "Matrix Resurrections",
+    "sinopse": "Da visionária realizadora Lana Wachowski chega-nos MATRIX RESURRECTIONS o tão aguardado 4º filme do inovador franchise que redefiniu o género. O novo filme reúne os protagonistas originais Keanu Reeves e Carrie-Anne Moss nos icónicos personagens que os tornaram famosos, Neo e Trinity.",
+    "trailer": "https://www.youtube.com/watch?v=Wg7V2_OBXwQ",
+    "dataEstreia": new Date("2021-12-22"),
+    "duracao": 148,
+    "atores": ["Keanu Reeves", "Laurence Fishburne", "Jessica Henwick", "Carrie Moss"]
+    },
+    {
+    "nomeFilme": "007: Sem Tempo para Morrer",
+    "sinopse": "James Bond deixa o MI6 e se muda para a Jamaica, mas um antigo amigo aparece e pede sua ajuda para encontrar um cientista desaparecido. Bond mergulha no caso e percebe que a busca é, na verdade, uma corrida para salvar o mundo.",
+    "trailer": "https://www.youtube.com/watch?v=kCyjw0z-5KI",
+    "dataEstreia": new Date("2021-09-30"),
+    "duracao": 163,
+    "atores": ["Daniel Craig", "Léa Seydoux", "Lashana Lynch", "Rami Malek"]
+    },
+    {
+    "nomeFilme": "Duna",
+    "sinopse": "Paul Atreides é um jovem brilhante, dono de um destino além de sua compreensão. Ele deve viajar para o planeta mais perigoso do universo para garantir o futuro de seu povo.",
+    "trailer": "https://www.youtube.com/watch?v=dnBpZuSUISQ",
+    "dataEstreia": new Date("2021-10-21"),
+    "duracao": 155,
+    "atores": ["Zendaya", "Timothee Chalamet", "Rebecca Ferguson", "Oscar Isaac"]
+    }
+
+])
+
 //=====================================================
