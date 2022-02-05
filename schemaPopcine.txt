@@ -231,6 +231,8 @@ let schemaLegenda = {
 
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
+
+//===============================================================
 let schemaEmBreve = {
     required: ["nomeFilme", "sinopse", "trailer", "dataEstreia", "duracao", "atores"],
     properties: {
@@ -264,4 +266,4 @@ let schemaEmBreve = {
 
 db.createCollection("embreve", {validator: {$jsonSchema: schemaEmBreve}});
 
-
+//=====================================================
