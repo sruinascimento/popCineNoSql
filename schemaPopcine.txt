@@ -1,5 +1,5 @@
 //required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero", "elenco", "diretor"],
-
+////////////////////////////////////////////
 let schemaMovie = {
     required: ["titulo", "sinopse", "duracao", "dataEstreia", "classificacao", "genero", "elenco", "diretor"],
     properties: {
@@ -71,12 +71,12 @@ db.movie.insertOne({
     "diretor": "Dwayne Jhonson"
 });
 
-
+////////////////////////////////////////////
 
 
 //
-db.movie.drop()
-let schemaMovie = null    
+/* db.cliente.drop()
+let schemaCliente = null     */
 
 let schemaCliente = {
     required: ["nome", "dataNascimento", "login"],
@@ -90,7 +90,7 @@ let schemaCliente = {
             description: "must be a date type and required"  
         },
        "login": {
-            bsonType: "objetId",
+            bsonType: "objectId",
             description: "must be a objectId and required"  
         }
 
@@ -98,6 +98,15 @@ let schemaCliente = {
 }
 
 db.createCollection("cliente", {validator: {$jsonSchema: schemaCliente}});
+
+//com objectId primeiro ObjectId("61fdc04f619b0ff9db732e9c")
+///////////////////////////////////
+db.cliente.insertOne({
+    "nome": "rui",
+    "dataNascimento": new Date(1996,28,02),
+    "login": ObjectId("61fdc04f619b0ff9db732e9c")
+})
+
 
 let schemaLogin = {
     required: ["email", "senha"],
@@ -113,6 +122,12 @@ let schemaLogin = {
     }
 }
 
+
+db.login.insertOne({
+    "email": "sruy19@gmail.com",
+    "senha": "123456789"
+})
+/////////////////////////////////////////////////
 db.createCollection("login", {validator: {$jsonSchema: schemaLogin}});
 
 let schemaIngresso = {
