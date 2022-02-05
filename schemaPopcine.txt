@@ -369,15 +369,23 @@ db.sessao.insertOne({
 
 
 let schemaLegenda = {
-    required: ["tradutores", "idiomaLegenda", "nomeFilme"],
-    properties: {
-        "tradutores": {
-            bsonType: "array",
-            description: "must be a array string and required"
-        },
-        "idiomaLegenda": {
-            bsonType: "array",
-            description: "must be a array string and required"
+    required: ["legenda", "idiomaFilme", "nomeFilme"],
+    properties: { 
+       "legenda": {
+            bsonType: "array",            
+            description: "must be a object array and required",
+            required:["idiomaLegenda", "tradutores"],
+            properties: {
+                "idiomaLegenda": {
+                    bsonType: "string",
+                    description: "must be a string and field is required"
+                },
+                "tradutores": {
+                    bsonType: "array",
+                    description: "must be a string if the field exists"
+                    
+                }
+            }
         },
         "idiomaFilme": {
             bsonType: "array",
@@ -390,9 +398,37 @@ let schemaLegenda = {
         }
     }
 }
-
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
+/**
+ *  properties: {
+                "idiomaLegenda": {
+                    bsonType: "string",
+                    description: "must be a string and field is required"
+                },
+                "tradutores": {
+                    bsonType: ["string"],
+                    description: "must be a string if the field exists"
+                    
+                }
+            }
+ */
+
+
+db.legenda.insertOne({
+    "legenda": [
+        {"idiomaLegenda": "Inglês", "tradutores": ["Ploop", "loop"]}, 
+        {"idiomaLegenda": "Inglês", "tradutores": ["Ploop", "loop"]}
+    ],
+    "idiomaFilme": ["Ingles", "Portgues"],
+    "nomeFilme": "Star Wars"    
+})
+
+db.legenda.insertOne({
+    "legenda": ["Oi", "Eu" ],
+    "idiomaFilme": "Ingles",
+    "nomeFilme": "Star Wars"    
+})
 
 //===============================================================
 let schemaEmBreve = {
@@ -465,3 +501,15 @@ db.embreve.insertMany([
 ])
 
 //=====================================================
+
+[
+{
+    idiomaleganda: "Ingles",
+    tradutores: ["Ploop", "George"]
+},
+
+{
+    idiomaLegenda: "Frances",
+    tradutores: ["Fulano", "Ciclano"]
+}
+]
