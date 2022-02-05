@@ -258,7 +258,7 @@ let schemaEmBreve = {
             description: "must be a int and required"
         },
         "atores": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a array string and required"
         }
     }
