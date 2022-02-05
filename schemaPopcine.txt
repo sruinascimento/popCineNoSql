@@ -107,7 +107,6 @@ db.cliente.insertOne({
     "login": ObjectId("61fdc04f619b0ff9db732e9c")
 })
 
-
 let schemaLogin = {
     required: ["email", "senha"],
     properties: {
@@ -121,7 +120,6 @@ let schemaLogin = {
         }
     }
 }
-
 
 db.login.insertOne({
     "email": "sruy19@gmail.com",
@@ -234,7 +232,7 @@ let schemaLegenda = {
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
 let schemaEmBreve = {
-    required: ["nomeFilme", "sinopse", "trailer", "dataEstreia"],
+    required: ["nomeFilme", "sinopse", "trailer", "dataEstreia", "duracao", "atores"],
     properties: {
         "nomeFilme": {
             bsonType: "string",
@@ -266,13 +264,4 @@ let schemaEmBreve = {
 
 db.createCollection("embreve", {validator: {$jsonSchema: schemaEmBreve}});
 
-let schemaDate = {
-    properties: {
-        "data": {
-            bsonType: "date"
-        }
-    }
-}
-
-db.createCollection("dataHora", {validator: {$jsonSchema: schemaDate}});
 
