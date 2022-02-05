@@ -302,4 +302,15 @@ db.embreve.insertMany([
 
 ])
 
+db.login.insert({
+	"email": "brendocomp.eng@gmail.com",
+	"senha": "1234"
+})
+
+db.cliente.insertOne({
+	"nome": "Brendo",
+	"dataNascimento": new Date("1999-02-12"),
+	"login": ObjectId("61fdc04f619b0ff9db732e9c")
+})
+
 //=====================================================
