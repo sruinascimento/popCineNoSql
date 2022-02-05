@@ -239,15 +239,15 @@ let schemaLegenda = {
     required: ["tradutores", "idiomaLegenda", "nomeFilme"],
     properties: {
         "tradutores": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a array string and required"
         },
         "idiomaLegenda": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a array string and required"
         },
         "idiomaFilme": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a array string and required"
         },
         "nomeFilme": {
@@ -260,6 +260,17 @@ let schemaLegenda = {
 
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
+db.sessao.insertOne({
+	"filme": "Venom Tempo de Carnificina",
+	"dataHora": new Date("2021-12-26"),
+	"nomeSala": "B"
+})
+
+db.sessao.insertOne({
+	"filme": "Star Wars",
+	"dataHora": new Date("2022-03-05"),
+	"nomeSala": "A"
+})
 
 //===============================================================
 let schemaEmBreve = {
