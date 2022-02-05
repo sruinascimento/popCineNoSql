@@ -205,6 +205,15 @@ let schemaSala = {
 
 db.createCollection("sala", {validator: {$jsonSchema: schemaSala}});
 
+db.sala.insertMany([
+    {"nomeSala": "A", "capacidade": 60},
+    {"nomeSala": "B", "capacidade": 60},
+    {"nomeSala": "C", "capacidade": 60},
+    {"nomeSala": "D", "capacidade": 60},
+    {"nomeSala": "E", "capacidade": 100},
+
+])
+
 let schemaSessao = {
     required: ["filme", "dataHora", "nomeSala"],
     properties: {
