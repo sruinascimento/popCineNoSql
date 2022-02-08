@@ -70,6 +70,126 @@ db.movie.insertOne({
     "elenco": ["Natasha Romanoff"],
     "diretor": "Dwayne Jhonson"
 });
+db.movie.insertOne({
+    "titulo": "Se beber, Não Case! Parte III",
+    "sinopse": "Depois da morte do pai, Alan decide ir para New Horizons com Phil, Stu e Doug, mas a viagem acaba sendo bruscamente interrompida pelos capangas de Marshall.",
+    "duracao": 100,
+    "dataEstreia": new Date("2013-10-08"),
+    "classificacao": "16 anos",
+    "orcamento": Double(100000000),
+    "bilheteria": Double(362811000),
+    "genero": ["Ação"],
+    "elenco": ["Bradley Cooper", "Ed Helms", "Ken Jeong", "Zach"],
+    "diretor": "Todd Phillips"
+});
+
+db.movie.insertOne({
+    "titulo": "Shazam",
+    "sinopse": "Billy Batson tem apenas 14 anos de idade, mas recebeu de um antigo mago o dom de se transformar em um super-herói adulto chamado Shazam. Ao gritar a palavra SHAZAM!",
+    "duracao": 132,
+    "dataEstreia": new Date("2019-04-04"),
+    "classificacao": "16 anos",
+    "orcamento": Double(100000000),
+    "bilheteria": Double(366811000),
+    "genero": ["Ação", "Comédia"],
+    "elenco": ["Zachary Levi", "Asher Angel", "Jack Dylan Grazer", "Mark Strong"],
+    "diretor": "David F. Sandberg"
+});
+
+
+db.movie.insertOne({
+    "titulo": "Venom Tempo de Carnificina",
+    "sinopse": "O relacionamento entre Eddie e Venom (Tom Hardy) está evoluindo. Buscando a melhor forma de lidar com a inevitável simbiose, esse dois lados descobrem como viver juntos e, de alguma forma, se tornarem melhores juntos do que separados.",
+    "duracao": 97,
+    "dataEstreia": new Date("2021-10-07"),
+    "classificacao": "14 anos",
+    "orcamento": Double(110000000),
+    "bilheteria": Double(424000000),
+    "genero": ["Ficção Científica", "Ação", "Aventura"],
+    "elenco": ["Tom Hardy", "Michelle Williams", "Reid Scott", "Peggy Lu", "Woody Harrelson", "Naomie Harris", "Stephen Graham", "Sian Webber"],
+    "diretor": "Andy Serkis"
+});
+
+
+db.movie.insertOne({
+    "titulo": "Se beber, Não Case! Parte III",
+    "sinopse": "Depois da morte do pai, Alan decide ir para New Horizons com Phil, Stu e Doug, mas a viagem acaba sendo bruscamente interrompida pelos capangas de Marshall.",
+    "duracao": 100,
+    "dataEstreia": new Date("2013-10-08"),
+    "classificacao": "16 anos",
+    "orcamento": Double(100000000),
+    "bilheteria": Double(362811000),
+    "genero": ["Ação"],
+    "elenco": ["Bradley Cooper", "Ed Helms", "Ken Jeong", "Zach"],
+    "diretor": "Todd Phillips"
+});
+
+db.movie.insertOne({
+    "titulo": "Shazam",
+    "sinopse": "Billy Batson tem apenas 14 anos de idade, mas recebeu de um antigo mago o dom de se transformar em um super-herói adulto chamado Shazam. Ao gritar a palavra SHAZAM!",
+    "duracao": 132,
+    "dataEstreia": new Date("2019-04-04"),
+    "classificacao": "16 anos",
+    "orcamento": Double(100000000),
+    "bilheteria": Double(366811000),
+    "genero": ["Ação", "Comédia"],
+    "elenco": ["Zachary Levi", "Asher Angel", "Jack Dylan Grazer", "Mark Strong"],
+    "diretor": "David F. Sandberg"
+});
+
+
+db.movie.insertOne({
+    "titulo": "Velozes & Furiosos 9",
+    "sinopse": "Dominic Toretto e sua família precisam enfrentar o seu irmão mais novo Jakob, um assassino mortal que está trabalhando com uma antiga inimiga, a cyber-terrorista Cipher.",
+    "duracao": 145,
+    "dataEstreia": new Date("2021-06-24"),
+    "classificacao": "14 anos",
+    "orcamento": Double(200000000),
+    "bilheteria": Double(704238000),
+    "genero": ["Ação", "Suspense", "Crime"],
+    "elenco": ["Vin Diesel", "Natalie Emmanuel", "John Cena", "Jordana Brewster", "Michelle Rodriguez"],
+    "diretor": "Justin Lin"
+});
+
+db.movie.insert({
+    "titulo": "Star Wars: Episódio IX",
+    "sinopse": "Com o retorno do Imperador Palpatine, a Resistência toma a frente da batalha. Treinando para ser uma completa Jedi, Rey se encontra em conflito com passado e futuro, e teme pelas respostas que pode conseguir com Kylo Ren.",
+    "duracao": NumberInt(142),
+    "dataEstreia": new Date("2019-12-19"),
+    "classificacao": "10 anos",
+    "orcamento": 250000000,
+    "bilheteria": 1074140000,
+    "genero": ['Ação', 'Aventura', 'Ficção', 'Científica'],
+    "elenco": ['Carrie Fisher', 'Daisy Ridley', 'John Boyega', 'Anthony Daniels', 'Mark Hamill', 'Adam Driver', 'Oscar Isaac', 'Naomi Ackie'],
+    "diretor": 'J.J. Abrams'
+});
+
+
+db.movie.insert({
+    "titulo": "Free Guy Assumindo o Controle",
+    "sinopse": "Um caixa de banco preso a uma entediante rotina tem sua vida virada de cabeça para baixo quando ele descobre que é personagem em um brutalmente realista vídeo game de mundo aberto. Agora ele precisa aceitar sua realidade e lidar com o fato de que é o único que pode salvar o mundo.",
+    "duracao": NumberInt(115),
+    "dataEstreia": new Date("2021-08-19"),
+    "classificacao": "12 anos",
+    "orcamento": 110000000,
+    "bilheteria": 317000000,
+    "genero": ['Comédia', 'Ação', 'Aventura', 'Ficção Científica'],
+    "elenco": ['Ryan Reynolds', 'Joe Keery', 'Utkarsh Ambudkar', 'Channing Tatum', 'Jodie Comer',' Lil Rel Howery', 'Taika Waititi',' Aaron W Reed'],
+    "diretor": 'Shawn Levy'
+});
+
+db.movie.insert({
+    "titulo": "Eternos",
+    "sinopse": "Após os eventos de “Vingadores: Ultimato”, os Eternos, uma raça alienígena imortal criada pelos Celestiais que vivem em segredo na Terra há mais de 7000 anos, se reúnem após uma tragédia inesperada para proteger a humanidade de seus colegas malignos: os Deviantes.",
+    "duracao": NumberInt(157),
+    "dataEstreia": new Date("2021-11-04"),
+    "classificacao": "12 anos",
+    "orcamento": 200000000,
+    "bilheteria": 300000000,
+    "genero": ['Ação', 'Aventura', 'Fantasia', 'Ficção Científica'],
+    "elenco": ['Gemma Chan', 'Angelina Jolie', 'Barry Keoghan',' Lia McHugh', 'Richard Madden', 'Kumail Nanjiani', 'Lauren Ridloff', 'Brian Tyree Henry'],
+    "diretor": 'Chloé Zhao'
+});
 
 ////////////////////////////////////////////
 
@@ -164,8 +284,28 @@ let schemaIngresso = {
 
     }
 }
-
 db.createCollection("ingresso", {validator: {$jsonSchema: schemaIngresso}});
+
+db.ingresso.insertOne({
+    "dataCompra": new Date(),
+    "formaPagamento": "Pix",
+    "tipoIngresso": "Inteira",
+    "nomeFilme": "Star Wars",
+    "poltrona": "F10",
+    "sala": "A",
+    "sessao": new Date(2022, 02, 05)
+})
+
+db.ingresso.insertOne({
+	"dataCompra": new Date("2021-12-25"),
+	"formaPagamento": "Boleto",
+	"tipoIngresso": "Meia",
+	"nomeFilme": "Venom Tempo de Carnificina",
+	"poltrona": "A11",
+	"sala": "B",
+	"sessao": new Date("2021-12-26")
+})
+
 
 let schemaSala = {
     required: ["nomeSala", "capacidade"],
@@ -184,6 +324,15 @@ let schemaSala = {
 }
 
 db.createCollection("sala", {validator: {$jsonSchema: schemaSala}});
+
+db.sala.insertMany([
+    {"nomeSala": "A", "capacidade": 60},
+    {"nomeSala": "B", "capacidade": 60},
+    {"nomeSala": "C", "capacidade": 60},
+    {"nomeSala": "D", "capacidade": 60},
+    {"nomeSala": "E", "capacidade": 100},
+
+])
 
 let schemaSessao = {
     required: ["filme", "dataHora", "nomeSala"],
@@ -206,19 +355,40 @@ let schemaSessao = {
 
 db.createCollection("sessao", {validator: {$jsonSchema: schemaSessao}});
 
+db.sessao.insertOne({
+	"filme": "Venom Tempo de Carnificina",
+	"dataHora": new Date("2021-12-26"),
+	"nomeSala": "B"
+})
+
+db.sessao.insertOne({
+	"filme": "Star Wars",
+	"dataHora": new Date("2022-03-05"),
+	"nomeSala": "A"
+})
+
+
 let schemaLegenda = {
-    required: ["tradutores", "idiomaLegenda", "nomeFilme"],
-    properties: {
-        "tradutores": {
-            bsonType: ["string"],
-            description: "must be a array string and required"
-        },
-        "idiomaLegenda": {
-            bsonType: ["string"],
-            description: "must be a array string and required"
+    required: ["legenda", "idiomaFilme", "nomeFilme"],
+    properties: { 
+       "legenda": {
+            bsonType: "array",            
+            description: "must be a object array and required",
+            required:["idiomaLegenda", "tradutores"],
+            properties: {
+                "idiomaLegenda": {
+                    bsonType: "string",
+                    description: "must be a string and field is required"
+                },
+                "tradutores": {
+                    bsonType: "array",
+                    description: "must be a string if the field exists"
+                    
+                }
+            }
         },
         "idiomaFilme": {
-            bsonType: ["string"],
+            bsonType: "array",
             description: "must be a array string and required"
         },
         "nomeFilme": {
@@ -228,9 +398,37 @@ let schemaLegenda = {
         }
     }
 }
-
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
 
+/**
+ *  properties: {
+                "idiomaLegenda": {
+                    bsonType: "string",
+                    description: "must be a string and field is required"
+                },
+                "tradutores": {
+                    bsonType: ["string"],
+                    description: "must be a string if the field exists"
+                    
+                }
+            }
+ */
+
+
+db.legenda.insertOne({
+    "legenda": [
+        {"idiomaLegenda": "Inglês", "tradutores": ["Ploop", "loop"]}, 
+        {"idiomaLegenda": "Inglês", "tradutores": ["Ploop", "loop"]}
+    ],
+    "idiomaFilme": ["Ingles", "Portgues"],
+    "nomeFilme": "Star Wars"    
+})
+
+db.legenda.insertOne({
+    "legenda": ["Oi", "Eu" ],
+    "idiomaFilme": "Ingles",
+    "nomeFilme": "Star Wars"    
+})
 
 //===============================================================
 let schemaEmBreve = {
@@ -314,3 +512,15 @@ db.cliente.insertOne({
 })
 
 //=====================================================
+
+[
+{
+    idiomaleganda: "Ingles",
+    tradutores: ["Ploop", "George"]
+},
+
+{
+    idiomaLegenda: "Frances",
+    tradutores: ["Fulano", "Ciclano"]
+}
+]
