@@ -58,6 +58,10 @@ let schemaMovie = {
 db.createCollection("movie", {validator: {$jsonSchema: schemaMovie}})
 //index de genero
 
+db.movie.createIndex( { "genero": 1 } )
+
+db.movie.getIndexes()
+
 db.movie.insertOne({
     "titulo": "Viúva Negra",
     "sinopse": "Natasha Romanoff, também conhecida como Viúva Negra, confronta o lado mais sombrio de sua história quando surge uma perigosa conspiração ligada ao seu passado. Perseguida por uma força implacável disposta a tudo para destruí-la, Natasha precisa agora lidar com seu passado como espiã e com as relações que deixou para trás muito antes de se tornar uma Vingadora.",
@@ -249,7 +253,7 @@ db.login.insertOne({
 db.createCollection("login", {validator: {$jsonSchema: schemaLogin}});
 
 let schemaIngresso = {
-    required: ["dataCompra", "formaPagamento", "tipoIngresso", "nomeFilme", "poltrona", "sala", "sessao"],
+    required: ["dataCompra", "formaPagamento", "tipoIngresso", "nomeFilme", "poltrona", "sala", "sessao", "preco"],
     properties: {
         "dataCompra": {
             bsonType: "date",
@@ -280,6 +284,10 @@ let schemaIngresso = {
         "sessao": {
             bsonType: "date",
             description: "must be date type and required"
+        },
+        "preco": {
+            bsonType: "double",
+            description: "must be date double and required"
         }
 
     }
@@ -293,7 +301,8 @@ db.ingresso.insertOne({
     "nomeFilme": "Star Wars",
     "poltrona": "F10",
     "sala": "A",
-    "sessao": new Date(2022, 02, 05)
+    "sessao": new Date(2022, 02, 05),
+    "preco": Double(22)
 })
 
 db.ingresso.insertOne({
@@ -303,7 +312,19 @@ db.ingresso.insertOne({
 	"nomeFilme": "Venom Tempo de Carnificina",
 	"poltrona": "A11",
 	"sala": "B",
-	"sessao": new Date("2021-12-26")
+	"sessao": new Date("2021-12-26"),
+    "preco": Double(22)
+})
+
+db.ingresso.insertOne({
+	"dataCompra": new Date("2021-12-25"),
+	"formaPagamento": "Boleto",
+	"tipoIngresso": "Meia",
+	"nomeFilme": "Velozes & Furiosos 9",
+	"poltrona": "A13",
+	"sala": "A",
+	"sessao": new Date("2022-01-29"),
+    "preco": Double(11)
 })
 
 
@@ -399,6 +420,41 @@ let schemaLegenda = {
     }
 }
 db.createCollection("legenda", {validator: {$jsonSchema: schemaLegenda}});
+
+let schemaBilheteria = {
+    required: ["ingressosVendidos"],
+    properties: {
+        "ingressosVendidos": {
+            bsonType: "array",
+            description: "must be a object array and required"
+        }
+    }
+}
+
+db.createCollection("bilheteria", {validator: {$jsonSchema: schemaBilheteria}});
+
+db.bilheteria.insertMany([{
+    "ingressosVendidos": [
+        { "idIngresso": ObjectId("620308ab49df111ec8bf5c6b")},
+        { "idIngresso": ObjectId("620308ab49df111ec8bf5c6c")},
+        { "idIngresso": ObjectId("620308ad49df111ec8bf5c6d")}
+    ]
+}])
+
+db.bilheteria.updateOne({ _id: ObjectId("620302da49df111ec8bf5c69") }, { $push: { "ingressosVendidos": { "idIngresso": ObjectId("6203019149df111ec8bf5c68")} } })
+
+db.bilheteria.aggregate( [
+   {
+      $lookup:
+         {
+            from: "ingresso",
+            localField: "ingressosVendidos.idIngresso",
+            foreignField: "_id",
+            as: "info_ingresso"
+        }
+   }
+] )
+
 
 /**
  *  properties: {
